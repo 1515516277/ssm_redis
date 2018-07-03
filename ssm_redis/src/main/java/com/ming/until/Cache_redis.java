@@ -11,14 +11,18 @@ public class Cache_redis   {
 
     public static void main(String[] args) {
         Jedis jedis = new Jedis("localhost",6379);
+        jedis.set("q","1");
+        System.out.println(jedis.get("q"));
 
 
-        byte[] byt=jedis.get("emp_6".getBytes());
+
+
+        /*byte[] byt=jedis.get("emp_6".getBytes());
         Object obj=unserizlize(byt);
         if(obj instanceof EmpEntity){
             EmpEntity emp = (EmpEntity) obj;
             System.out.println(emp.toString());
-        }
+        }*/
     }
     //反序列化
     public static Object unserizlize(byte[] byt){

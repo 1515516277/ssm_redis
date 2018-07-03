@@ -30,5 +30,13 @@
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
    </mvc:message-converters>
 </mvc:annotation-driven>
+
+	<!-- 配置文件上传类型解析器 multipartResolver-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件最大尺寸，单位为B -->
+		<property name="maxUploadSize" value="5242880" />
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+
 	<import resource="spring-redis.xml"/>
 </beans>

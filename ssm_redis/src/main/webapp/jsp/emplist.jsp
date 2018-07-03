@@ -20,6 +20,14 @@
             src="${path }/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<form class="form-upload" action="/file/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="确定"/>
+</form>
+<form class="form-upload" action="/excleIn" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="确定"/>
+</form>
 <div class="container">
     <div id="fenye">
         <%@include file="emplistpage.jsp" %>
@@ -39,7 +47,7 @@
                 <h4 class="modal-title" id="myModalLabel">员工添加</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal formtable">
                     <input name="id" type="hidden" id="eid">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">empName</label>
@@ -90,6 +98,8 @@
 
 </body>
 <script type="text/javascript">
+
+
     //分页
     function page(obj) {
         console.info(obj);
@@ -183,7 +193,7 @@
             $.ajax({
                 url: "${path}/addemp",
                 type: "post",
-                data: $("form").serialize(),
+                data: $(".formtable").serialize(),
                 dataType: "json",
                 success: function (data) {
                     console.info(data)
@@ -203,7 +213,7 @@
             $.ajax({
                 url: "${path}/editemp",
                 type: "post",
-                data: $("form").serialize(),
+                data: $(".formtable").serialize(),
                 dataType: "json",
                 success: function (data) {
                     console.info(data)

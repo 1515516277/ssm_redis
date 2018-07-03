@@ -1,9 +1,14 @@
 package com.ming.test;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 import com.ming.entity.EmpEntity;
 import com.ming.service.Empservice;
+import org.junit.Test;
 
 public class Testclass {
 
@@ -28,4 +33,23 @@ public class Testclass {
 	public static void jsonxml(){
 		String json="";
 	}
+
+
+
+	@Test
+	public void t2(){
+		Object[] obj = new Object[2];
+		System.out.println(Arrays.asList(obj));
+		obj[0]=1;
+		obj[1]=2;
+        System.out.println(Arrays.asList(obj));
+    }
+
+    @Test
+    public void getcontext() throws IOException {
+		File directory = new File("");// 参数为空
+		String courseFile = directory.getCanonicalPath();
+		System.out.println(courseFile);
+	}
+
 }
