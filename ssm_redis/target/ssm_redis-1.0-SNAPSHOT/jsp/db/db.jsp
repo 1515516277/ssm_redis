@@ -3,5 +3,4 @@
 <%
 //当前页面域
 	pageContext.setAttribute("path",request.getContextPath());
-	//										getContextPath()
 %>
