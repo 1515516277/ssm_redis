@@ -22,12 +22,14 @@
 <body>
 <form class="form-upload" action="/file/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
-    <input type="submit" value="确定"/>
+    <input type="submit" value="上传"/>
 </form>
+
 <form class="form-upload" action="/excleIn" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
-    <input type="submit" value="确定"/>
+    <input type="submit" value="导入Excel"/>
 </form>
+<a href="/excle">导出Excel</a>
 <a href="/file/do_download?fileUrl=http://img.zcool.cn/community/01f09e577b85450000012e7e182cf0.jpg"><img src="http://img.zcool.cn/community/01f09e577b85450000012e7e182cf0.jpg" style="height: 200px;width: 200px;"></a>
 <img width="100" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3569479631,993103025&fm=27&gp=0.jpg"/>
 <div class="container">

@@ -1,6 +1,5 @@
 package com.ming.controller;
 
-import com.ming.entity.EmpEntity;
 import com.ming.entity.UserEntity;
 import com.ming.service.Userservice;
 import org.springframework.beans.factory.annotation.Autowired;

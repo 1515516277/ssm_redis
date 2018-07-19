@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ming.dao.SheetEntityLrMapper">
+
+	<sql id="clum">
+		id,subject_name,year_total,years,change_cause,unit,corp_name,
+		month01,month02,month03,month04,month05,month06,month07,month08,month09,month10,month11,month12
+	</sql>
+	<sql id="whe">
+		<if test="id != null and id !=''">
+			and id =#{id}
+		</if>
+		<if test="corpName != null and corpName != ''">
+			and corp_name=#{corpName}
+		</if>
+		<if test="years != null and years != ''">
+			and years=#{years}
+		</if>
+		<if test="subjectName != null and subjectName != ''">
+			and subject_name=#{subjectName}
+		</if>
+	</sql>
+
+	<insert id="inserts" >
+		insert into tb_profit_statement(
+		corp_name,subject_name,year_total,years,change_cause,unit,
+		month01,month02,month03,month04,month05,month06,month07,month08,month09,month10,month11,month12
+		) values
+		<foreach collection="sheets" item="item"  index="index" separator="," >
+			(#{item.corpName},#{item.subjectName},#{item.yearTotal},#{item.years},
+			#{item.changeCause},#{item.unit},
+			#{item.month01},#{item.month02},#{item.month03},#{item.month04},#{item.month05},#{item.month06},
+			#{item.month07},#{item.month08},#{item.month09},#{item.month10},#{item.month11},#{item.month12})
+		</foreach>
+	</insert>
+
+	<select id="selsheet01" resultType="com.ming.entity.SheetEntity" parameterType="com.ming.entity.SheetEntity">
+		select <include refid="clum"/> from tb_profit_statement where 1=1
+		<include refid="whe"></include>
+	</select>
+
+	<update id="editsheet" parameterType="com.ming.entity.SheetEntity">
+		update tb_profit_statement
+		<set>
+			id=id,
+			<if test="changeCause != null and changeCause != ''">change_cause=#{changeCause},</if>
+			<if test="month01 != null and month01 != ''">month01=#{month01},</if>
+			<if test="month02 != null and month02 != ''">month02=#{month02},</if>
+			<if test="month03 != null and month03 != ''">month03=#{month03},</if>
+			<if test="month04 != null and month04 != ''">month04=#{month04},</if>
+			<if test="month05 != null and month05 != ''">month05=#{month05},</if>
+			<if test="month06 != null and month06 != ''">month06=#{month06},</if>
+			<if test="month07 != null and month07 != ''">month07=#{month07},</if>
+			<if test="month08 != null and month08 != ''">month08=#{month08},</if>
+			<if test="month09 != null and month09 != ''">month01=#{month09},</if>
+			<if test="month10 != null and month10 != ''">month10=#{month10},</if>
+			<if test="month11 != null and month11 != ''">month11=#{month11},</if>
+			<if test="month12 != null and month12 != ''">month12=#{month12},</if>
+		</set>
+		where 1=1
+		<include refid="whe"></include>
+	</update>
+
+</mapper>

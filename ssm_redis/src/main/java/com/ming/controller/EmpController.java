@@ -1,6 +1,5 @@
 package com.ming.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ming.entity.DempEntity;
@@ -15,7 +14,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -152,7 +150,7 @@ public class EmpController {
             }
 
             //创建HSSFWorkbook
-            HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, content, null);
+            HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, content, null,null);
             //响应到客户端
             ExcelUtil.setResponseHeader(response, fileName);
             OutputStream os = response.getOutputStream();
@@ -186,6 +184,13 @@ public class EmpController {
             System.out.println(vo.toString());
         }
     }
+
+    @RequestMapping("/sheet")
+    public String sheet(){
+        return "excel";
+    }
+
+
 
 
 }

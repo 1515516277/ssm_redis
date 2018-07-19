@@ -1,6 +1,5 @@
 package com.ming.until;
 
-import com.ming.entity.EmpEntity;
 import redis.clients.jedis.Jedis;
 
 import java.io.ByteArrayInputStream;

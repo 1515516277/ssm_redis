@@ -1,14 +1,14 @@
 package com.ming.test;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.UUID;
 
 import com.ming.entity.EmpEntity;
 import com.ming.service.Empservice;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
 
 public class Testclass {
@@ -75,5 +75,35 @@ public class Testclass {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void isnumber(){
+        Object c= 0.0;
+        String cc= "v";
+        if(NumberUtils.isNumber(c+"")){
+            System.out.println(Double.parseDouble(c+"")>0);
+        }else{
+            System.out.println("xxxxxxxxxxx");
+        }
+        Calendar cale = Calendar.getInstance();
+        int i =cale.get(Calendar.YEAR);
+        System.out.println(
+                i
+                //(c+"")==null||(c+"").equals("null")||(NumberUtils.isNumber(c+"")&&Integer.parseInt(c+"")<=0)?"":c+""
+        );
+    }
+
+    @Test
+    public void aandb(){
+        try {
+            int[][] i= new int[3][];
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 }
